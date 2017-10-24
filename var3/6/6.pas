@@ -8,7 +8,7 @@ var
 	arr
 		: array[1..length] of integer;
 begin
-	write('max -> ');
+	write('максимум -> ');
 	readln(max);
 
 	write('| ');

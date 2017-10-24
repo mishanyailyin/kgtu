@@ -12,5 +12,5 @@ begin
 		if(_string = ' ') then
 			counter := counter + 1;
 	end;
-	writeln('Counted -> ', counter);
+	writeln('всего -> ', counter);
 end.

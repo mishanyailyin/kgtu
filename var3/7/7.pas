@@ -14,7 +14,7 @@ begin
 	readln(size);
 	if(size > 256) then begin
 			writeln('--ERROR--');
-			writeln('size must be less then 256');
+			writeln('size должен быть меньше чем 256');
 			writeln('---------');
 			exit;
 	end;
@@ -23,7 +23,7 @@ begin
 	readln(max);
 	if(max > 32767) then begin
 			writeln('--ERROR--');
-			writeln('max must be less then 32767');
+			writeln('max должен быть меньше чем 32767');
 			writeln('---------');
 			exit;
 	end;
@@ -32,7 +32,7 @@ begin
 	readln(find);
 	if(find > 32767) then begin
 			writeln('--ERROR--');
-			writeln('find must be less then 32767');
+			writeln('find должен быть меньше чем 32767');
 			writeln('---------');
 			exit;
 	end;

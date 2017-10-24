@@ -23,5 +23,5 @@ begin
 	write('y2 -> ');
 	readln(y2);
 
-	writeln('result -> ', calcCoordDistance(x1, y1, x2, y2):10:3);
+	writeln('результат -> ', calcCoordDistance(x1, y1, x2, y2):10:3);
 end.

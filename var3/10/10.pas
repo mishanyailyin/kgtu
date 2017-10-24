@@ -69,7 +69,7 @@ begin
 end;
 
 begin
-	write('month -> ');
+	write('месяц -> ');
 	readln(month);
 	parseFile('file.txt');
 	for i := 1 to length do begin

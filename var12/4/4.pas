@@ -30,7 +30,7 @@ begin
 	write('y2To -> ');
 	readln(y2To);
 	if(y2From > y2To) then begin
-			writeln('--ОШИБКА--');
+			writeln('--ERROR--');
 			writeln('y2From должен быть больше чем y2To');
 			writeln('---------');
 			exit;
@@ -46,7 +46,7 @@ begin
 		if result then
 			_string := 'проходит через начало координат'
 		else
-			_string := 'не проходит через начало координат';
+			_string := 'не проходит через начало координатt';
 		writeln('| ',y2:10:3,' | ',_string:37,' |');
 		y2 += step;
 	end;
