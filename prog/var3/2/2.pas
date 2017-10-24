@@ -18,5 +18,5 @@ begin
 	readln(y2);
 
 	result := sqrt(sqr(x2-x1) + sqr(y2-y1));
-	writeln('result -> ', result:10:3);
+	writeln('Результат -> ', result:10:3);
 end.
