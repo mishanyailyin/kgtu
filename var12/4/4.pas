@@ -1,55 +1,36 @@
 program lab4;
 var
-	x1,
-	y1
-		: real;
-
-	x2,
-	y2,
-	y2From,
-	y2To
-		: real;
-
-	step
-		: real;
-
+	radiusFrom,
+	radiusTo,
+	radius,
+	step,
+	x,
+	y,
 	result
-		: boolean;
-	_string: string;
-
+		: real;
 begin
-	write('x1 -> ');
-	readln(x1);
-	write('y1 -> ');
-	readln(y1);
+	write('введите радиус окружности ОТ и ДО: ');
+	readln(radiusFrom, radiusTo);
+	if (radiusFrom <= 0) or (radiusTo <= 0) then begin
+		writeln('радиус должен быть больше нуля');
+	end else if radiusFrom >= radiusTo then begin
+		writeln('радиусОТ должен быть больше радиусаДО');
+	end else begin
+		write('введите координаты точки x y: ');
+		readln(x, y);
 
-	write('x2 -> ');
-	readln(x2);
-	write('y2From -> ');
-	readln(y2From);
-	write('y2To -> ');
-	readln(y2To);
-	if(y2From > y2To) then begin
-			writeln('--ERROR--');
-			writeln('y2From должен быть больше чем y2To');
-			writeln('---------');
-			exit;
+		step := (radiusTo - radiusFrom) / 16;
+		radius := radiusFrom;
+		while (radius <= radiusTo) do begin
+			result := abs(sqrt(sqr(x)+sqr(y)) - radius);
+			write('расстояние от точки, до окружности равно: ', result:10:3, ' | ');
+			if result > 0 then
+				writeln('точка находится за окружностью')
+			else if result = 0 then
+				writeln('точка находится на окружности')
+			else
+				writeln('точка находится внутри окружности');
+			radius += step;
+		end;
 	end;
-
-	step := (y2To - y2From) / 16;
-
-	writeln('| ','----y2----',' | ','--проходит через начало координат?--',' |');
-
-	y2 := y2From;
-	while (y2 <= y2To) do begin
-		result := (x1*y2-x2*y1) = 0;
-		if result then
-			_string := 'проходит через начало координат'
-		else
-			_string := 'не проходит через начало координатt';
-		writeln('| ',y2:10:3,' | ',_string:37,' |');
-		y2 += step;
-	end;
-
-	writeln('| ','----------',' | ','-------------------------------------',' |');
 end.
