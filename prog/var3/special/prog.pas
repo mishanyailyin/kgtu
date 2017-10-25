@@ -136,6 +136,7 @@ begin
 	reset(_file);
 	repeat
 		readln(_file, str);
+		writeln(str);
 		parseString(str, studs, subjs);
 	until eof(_file);
 end;
@@ -206,12 +207,12 @@ begin
   
   parseFile('input.txt', studs, subjs);
   
-  writeln();
+  writeln;
   printStudentsMax(studs);
-  writeln();
+  writeln;
   printStudentsMiddle(studs);
-  writeln();
+  writeln;
   printBadStudents(studs);
-  writeln();
+  writeln;
   pringSubjects(subjs);
 end.
