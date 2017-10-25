@@ -1,0 +1,16 @@
+Artem 3 3 3 17-BT-1
+Artem 4 3 5 17-BT-1
+Artem 5 5 5 17-BT-1
+Artem 2 3 3 17-BT-1
+Vasiliy 5 5 5 17-BT-2
+Vasiliy 3 4 4 17-BT-2
+Vasiliy 4 4 5 17-BT-2
+Vasiliy 4 5 4 17-BT-2
+Ivan 5 5 5 17-BT-2
+Ivan 4 4 4 17-BT-2
+Ivan 5 3 3 17-BT-2
+Ivan 2 5 5 17-BT-2
+Masha 3 3 3 17-BT-2
+Masha 5 5 5 17-BT-2
+Masha 2 4 5 17-BT-2
+Masha 5 5 5 17-BT-21
