@@ -28,7 +28,7 @@ begin
 	if (x1*y2-x2*y1) = 0 then
 		writeln('проходит через начало координат')
 	else
-		writeln('проходит через начало координат');
+		writeln('не проходит через начало координат');
 	result := sqrt(sqr(x2-x1) + sqr(y2-y1));
 	writeln('длина прямой -> ', result:10:3);
 end.
