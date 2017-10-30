@@ -4,7 +4,4 @@ interface
   
   end;
 implementation
-{закрытые описания процедуры и функции }
-begin
-{код инициализации }
 end.
