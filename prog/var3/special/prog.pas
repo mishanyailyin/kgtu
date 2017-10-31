@@ -24,17 +24,27 @@ type
     
     function getMiddle(): Real;
     begin
-      getMiddle := (subject0 + subject1 + subject2) / 3;
+      getMiddle := (subject0 + subject1 + subject2) / 3
+    end;
+    
+    function getSum(): Integer;
+    begin
+      getSum := subject0 + subject1 + subject2
     end;
     
     function isBad(): Boolean;
     begin
-      isBad := (subject0 <= 2) Or (subject1 <= 2) OR (subject2 <= 2);
+      isBad := (subject0 <= 2) Or (subject1 <= 2) OR (subject2 <= 2)
     end;
     
     procedure print();
     begin
       writeln(name, ' ', group, ' ', getMiddle():3:2)
+    end;
+    
+    procedure printSum();
+    begin
+      writeln(name, ' ', group, ' ', getSum())
     end;
   end;
 
@@ -75,7 +85,7 @@ var
   subjects := new List<Subject>(3);
   students := new List<Student>();
 
-procedure readConsole(onRead: function(str: String)) ;
+procedure readConsole(onRead: function(str: String))         ;
 var
   flag := false;
   str: String;
@@ -86,6 +96,20 @@ begin
     if str = 'exit' then flag := true
     else onRead(str)
   until flag;
+end;
+
+procedure readFile(fname: String; onRead: function(str: String))     ;
+var
+  str: String;
+  f: Text;
+begin
+  assign(f, fname);
+  reset(f);
+  while not f.Eof do 
+  begin
+    readln(f, str);
+    onRead(str);
+  end;
 end;
 
 procedure parseString(str: String);
@@ -109,8 +133,7 @@ begin
     subjects.Item[0].addMark(subject0);
     subjects.Item[1].addMark(subject1);
     subjects.Item[2].addMark(subject2);
-  end else
-    writeln('Входная строка имела неверный формат.');
+  end
 end;
 
 begin
@@ -120,24 +143,45 @@ begin
     subjects.Add(new Subject(readString()));
   end;
   writeln('Формат ввода "ИМЯ 5 5 5 ГРУППА"');
-  readConsole(parseString);
   
-  writeln('Спиок предметов:');
-  subjects.Sort((o1, o2) -> -1 * o1.getMiddle().CompareTo(o2.getMiddle()));
-  subjects.Foreach(it -> begin it.print(); end);
+  var f := new Text();
+  AssignFile(f, 'consoleRead.txt');
+  rewrite(f);
+  readConsole(
+  (str: String) ->begin
+    f.Writeln(str);
+  end);
+  f.Flush();
+  f.Close();
+  readFile('consoleRead.txt', parseString);
+  
+  
+  writeln('Спиок учеников по сумме баллов:');
+  students.Sort((o1, o2) -> -1 * o1.getSum().CompareTo(o2.getSum()));
+  students.Foreach(it -> begin it.printSum(); end);
   writeln();
   
-  writeln('Спиок учеников:');
+  writeln('Спиок учеников по среднему баллу:');
   students.Sort((o1, o2) -> -1 * o1.getMiddle().CompareTo(o2.getMiddle()));
   students.Foreach(it -> begin it.print(); end);
   writeln();
   
   writeln('Спиок двоешников:');
   students.Sort((o1, o2) -> -1 * o1.getMiddle().CompareTo(o2.getMiddle()));
+  var isBad := false;
   students.Foreach(
   it -> begin
-    if it.isBad() then
-    it.print()
+    if it.isBad() then begin
+    it.print();
+    isBad := true;
+    end;
   end);
+  if isBad then
+    writeln('Список пуст.');
+  writeln();
+  
+  writeln('Спиок предметов:');
+  subjects.Sort((o1, o2) -> -1 * o1.getMiddle().CompareTo(o2.getMiddle()));
+  subjects.Foreach(it -> begin it.print(); end);
   writeln();
 end.
