@@ -1,0 +1,2 @@
+isBad 1 2 3 4
+isBad 2 3 4 5
