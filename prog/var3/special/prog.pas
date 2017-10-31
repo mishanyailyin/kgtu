@@ -22,9 +22,19 @@ type
     property subject2: Integer read _subject2;
     property group: String read _group;
     
-    function toString(): String; override;
+    function getMiddle(): Real;
     begin
-      toString := name + ' ' + subject0 + ' ' + subject1 + ' ' + subject2 + ' ' + group;
+      getMiddle := (subject0 + subject1 + subject2) / 3;
+    end;
+    
+    function isBad(): Boolean;
+    begin
+      isBad := (subject0 <= 2) Or (subject1 <= 2) OR (subject2 <= 2);
+    end;
+    
+    procedure print();
+    begin
+      writeln(name, ' ', group, ' ', getMiddle():3:2)
     end;
   end;
 
@@ -41,6 +51,8 @@ type
     end;
     
     property name: String read _name;
+    property sum: Integer read _sum;
+    property count: Integer read _count;
     
     procedure addMark(mark: Integer);
     begin
@@ -50,12 +62,12 @@ type
     
     function getMiddle(): Real;
     begin
-      getMiddle := self._sum / self._count;
+      getMiddle := sum / count;
     end;
     
-    function toString(): String; override;
+    procedure print();
     begin
-      toString := name + ' ' + getMiddle().ToString;
+      writeln(name, ' ', getMiddle():3:2);
     end;
   end;
 
@@ -112,5 +124,20 @@ begin
   
   writeln('Спиок предметов:');
   subjects.Sort((o1, o2) -> -1 * o1.getMiddle().CompareTo(o2.getMiddle()));
-  subjects.Foreach(it -> writeln(it));
+  subjects.Foreach(it -> begin it.print(); end);
+  writeln();
+  
+  writeln('Спиок учеников:');
+  students.Sort((o1, o2) -> -1 * o1.getMiddle().CompareTo(o2.getMiddle()));
+  students.Foreach(it -> begin it.print(); end);
+  writeln();
+  
+  writeln('Спиок двоешников:');
+  students.Sort((o1, o2) -> -1 * o1.getMiddle().CompareTo(o2.getMiddle()));
+  students.Foreach(
+  it -> begin
+    if it.isBad() then
+    it.print()
+  end);
+  writeln();
 end.
