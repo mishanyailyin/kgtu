@@ -52,7 +52,7 @@ type
   Subject = class
   private 
     _name: String;
-    _count: Integer = 0;
+    _count: Integer = 1;
     _sum: Integer = 0;
   public 
     constructor(name: String);
@@ -85,7 +85,7 @@ var
   subjects := new List<Subject>(3);
   students := new List<Student>();
 
-procedure readConsole(onRead: function(str: String))         ;
+procedure readConsole(onRead: function(str: String))             ;
 var
   flag := false;
   str: String;
@@ -98,7 +98,7 @@ begin
   until flag;
 end;
 
-procedure readFile(fname: String; onRead: function(str: String))     ;
+procedure readFile(fname: String; onRead: function(str: String))         ;
 var
   str: String;
   f: Text;
@@ -155,33 +155,42 @@ begin
   f.Close();
   readFile('consoleRead.txt', parseString);
   
-  
+  writeln();
   writeln('Спиок учеников по сумме баллов:');
-  students.Sort((o1, o2) -> -1 * o1.getSum().CompareTo(o2.getSum()));
-  students.Foreach(it -> begin it.printSum(); end);
+  if students.Count > 0 then begin
+    students.Sort((o1, o2) -> -1 * o1.getSum().CompareTo(o2.getSum()));
+    students.Foreach(it -> begin it.printSum(); end);
+  end else
+    writeln('Список пуст.');
   writeln();
   
   writeln('Спиок учеников по среднему баллу:');
-  students.Sort((o1, o2) -> -1 * o1.getMiddle().CompareTo(o2.getMiddle()));
-  students.Foreach(it -> begin it.print(); end);
+  if students.Count > 0 then begin
+    students.Sort((o1, o2) -> -1 * o1.getMiddle().CompareTo(o2.getMiddle()));
+    students.Foreach(it -> begin it.print(); end);
+  end else
+    writeln('Список пуст.');
   writeln();
   
   writeln('Спиок двоешников:');
   students.Sort((o1, o2) -> -1 * o1.getMiddle().CompareTo(o2.getMiddle()));
-  var isBad := false;
+  var isBad := true;
   students.Foreach(
   it -> begin
     if it.isBad() then begin
     it.print();
-    isBad := true;
+    isBad := false;
     end;
   end);
   if isBad then
     writeln('Список пуст.');
   writeln();
   
-  writeln('Спиок предметов:');
-  subjects.Sort((o1, o2) -> -1 * o1.getMiddle().CompareTo(o2.getMiddle()));
-  subjects.Foreach(it -> begin it.print(); end);
+  writeln('Спиcок предметов:');
+  if subjects.Count > 0 then begin
+    subjects.Sort((o1, o2) -> -1 * o1.getMiddle().CompareTo(o2.getMiddle()));
+    subjects.Foreach(it -> begin it.print(); end);
+  end else
+    writeln('Список пуст.');
   writeln();
 end.
