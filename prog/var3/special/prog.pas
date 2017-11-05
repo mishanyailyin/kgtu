@@ -85,7 +85,7 @@ var
   subjects := new List<Subject>(3);
   students := new List<Student>();
 
-procedure readConsole(onRead: function(str: String))             ;
+procedure readConsole(onRead: function(str: String));
 var
   flag := false;
   str: String;
@@ -156,7 +156,7 @@ begin
   readFile('consoleRead.txt', parseString);
   
   writeln();
-  writeln('Спиок учеников по сумме баллов:');
+  writeln('Список учеников по сумме баллов:');
   if students.Count > 0 then begin
     students.Sort((o1, o2) -> -1 * o1.getSum().CompareTo(o2.getSum()));
     students.Foreach(it -> begin it.printSum(); end);
@@ -164,7 +164,7 @@ begin
     writeln('Список пуст.');
   writeln();
   
-  writeln('Спиок учеников по среднему баллу:');
+  writeln('Список учеников по среднему баллу:');
   if students.Count > 0 then begin
     students.Sort((o1, o2) -> -1 * o1.getMiddle().CompareTo(o2.getMiddle()));
     students.Foreach(it -> begin it.print(); end);
@@ -172,7 +172,7 @@ begin
     writeln('Список пуст.');
   writeln();
   
-  writeln('Спиок двоешников:');
+  writeln('Список двоешников:');
   students.Sort((o1, o2) -> -1 * o1.getMiddle().CompareTo(o2.getMiddle()));
   var isBad := true;
   students.Foreach(
