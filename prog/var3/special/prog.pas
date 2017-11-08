@@ -52,7 +52,7 @@ type
   Subject = class
   private 
     _name: String;
-    _count: Integer = 1;
+    _count: Integer = 0;
     _sum: Integer = 0;
   public 
     constructor(name: String);
@@ -72,7 +72,8 @@ type
     
     function getMiddle(): Real;
     begin
-      getMiddle := sum / count;
+      if count <> 0 then getMiddle := sum / count
+      else getMiddle := 0;
     end;
     
     procedure print();

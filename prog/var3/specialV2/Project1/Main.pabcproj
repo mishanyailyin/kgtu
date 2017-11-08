@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project FileVersion="2" Name="Main" MainFile="Main.pas" OutputFileName="Main.exe" OutputDirectory="build" ProjectType="ConsoleApp" IncludeDebugInfo="True" GenerateXMLDoc="False" CommandLineArguments="" AppIcon="" DeleteEXE="True" DeletePDB="True" Product="" Company="" Trademark="" Copyright="" MajorVersion="0" MinorVersion="0" BuildVersion="0" RevisionVersion="0">
+  <Items>
+    <Item Type="SourceFile" Name="Main.pas" Path="Main.pas" />
+    <Item Type="SourceFile" Name="FileUtils.pas" Path="FileUtils.pas" />
+    <Item Type="SourceFile" Name="StudentU.pas" Path="StudentU.pas" />
+    <Item Type="SourceFile" Name="SubjectU.pas" Path="SubjectU.pas" />
+    <Item Type="Reference" AssemblyName="System" FullAssemblyName="System.dll" />
+  </Items>
+</Project>
