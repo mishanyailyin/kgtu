@@ -30,7 +30,7 @@ type
     
     procedure print();
     begin
-      writeln(name, ' ', sum);
+      writeln(name:16, ' ', sum:3);
     end;
   end;
 

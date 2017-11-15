@@ -10,7 +10,7 @@ var
 procedure printSubjects(subjects: List<Subject>);
 begin
   writeln();
-  writeln('Список предметов отсортированный по сумме баллов: ');
+  writeln('Список предметов, отсортированный по сумме баллов: ');
   subjects.Sort((o1, o2) -> -1 * o1.sum.CompareTo(o2.sum));
   subjects.foreach((it: Subject)->begin it.print() end);
 end;
@@ -18,7 +18,7 @@ end;
 procedure printStudentsMiddle(students: List<Student>);
 begin
   writeln();
-  writeln('Список учеников отсортированный по сумме баллов: ');
+  writeln('Список студентов, отсортированных по среднему баллу: ');
   students.Sort((o1, o2) -> -1 * o1.getMiddle().CompareTo(o2.getMiddle()));
   students.Foreach(it -> begin it.print(); end);
 end;
@@ -26,7 +26,7 @@ end;
 procedure printStudentsBad(students: List<Student>);
 begin
   writeln();
-  writeln('Список двоешников: ');
+  writeln('Список двоечников: ');
   students.Sort((o1, o2) -> -1 * o1.getMiddle().CompareTo(o2.getMiddle()));
   var isBad := true;
   students.Foreach(
@@ -41,7 +41,7 @@ begin
 end;
 
 begin
-  writeln('Программа рассчета успеваемости студентов');
+  writeln('Программа расчета успеваемости студентов');
   readFile('subjects.txt', (next: String)->begin
       subjects.add(new Subject(next));
       subjectsCounter := subjectsCounter + 1;

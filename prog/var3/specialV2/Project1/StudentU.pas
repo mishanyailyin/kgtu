@@ -42,12 +42,12 @@ type
     
     procedure print();
     begin
-      writeln(name, ' ', group, ' ', getMiddle():3:2)
+      writeln(name:16, ' ', group:16, ' ', getMiddle():4:2)
     end;
     
     procedure printSum();
     begin
-      writeln(name, ' ', group, ' ', getSum())
+      writeln(name:16, ' ', group:16, ' ', getSum():3)
     end;
   end;
 
