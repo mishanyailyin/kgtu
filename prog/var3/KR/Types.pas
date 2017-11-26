@@ -1,5 +1,7 @@
 unit Types;
 
+type Arr = array [0..4] of integer;
+
 type
   GroupType = record
   public 
@@ -24,13 +26,8 @@ type
   StudentType = record
   public 
     name: String[32];
-    marks: array[0..4] of 0..9;
+    marks: Arr;
     group: Integer;
   end;
-
-const
-  fileOfGroupsName: String = 'data/groups.dat';
-  fileOfSubjectsName: String = 'data/subjecs.dat';
-  fileOfStudentsName: String = 'data/students.dat';
 
 end.

@@ -2,7 +2,11 @@
 <Project FileVersion="2" Name="Main" MainFile="Main.pas" OutputFileName="Main.exe" OutputDirectory="" ProjectType="ConsoleApp" IncludeDebugInfo="True" GenerateXMLDoc="False" CommandLineArguments="" AppIcon="" DeleteEXE="True" DeletePDB="True" Product="" Company="" Trademark="" Copyright="" MajorVersion="0" MinorVersion="0" BuildVersion="0" RevisionVersion="0">
   <Items>
     <Item Type="SourceFile" Name="Main.pas" Path="Main.pas" />
-    <Item Type="SourceFile" Name="Unit.pas" Path="Unit.pas" />
+    <Item Type="SourceFile" Name="Utils
+	.pas" Path="Utils.pas" />
+    <Item Type="SourceFile" Name="Types.pas" Path="Types.pas" />
+    <Item Type="SourceFile" Name="PM.pas" Path="PM.pas" />
+    <Item Type="SourceFile" Name="Interactors.pas" Path="Interactors.pas" />
     <Item Type="Reference" AssemblyName="System" FullAssemblyName="System.dll" />
   </Items>
 </Project>
